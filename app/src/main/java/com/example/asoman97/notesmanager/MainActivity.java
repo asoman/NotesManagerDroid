@@ -16,9 +16,5 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-
-    private List getAllFromPreferences(){
-
-        return null;
-    }
+    
 }
