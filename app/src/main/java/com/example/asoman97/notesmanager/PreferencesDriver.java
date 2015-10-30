@@ -9,17 +9,18 @@ import java.util.List;
  * Created by asoman97 on 30.10.2015.
  */
 public class PreferencesDriver<T> {
-    SharedPreferences preferences;
-    int countPreferences;
+    private SharedPreferences preferences;
+    private int countPreferences;
 
     public PreferencesDriver(SharedPreferences Preferences) {
         preferences = Preferences;
-        countPreferences = preferences.getInt("count_preferences",0);
+
     }
 
 
-    public ArrayList<Note> GetAllDataNotes(){           //Потом получше изучу дженерики. Сейчас пока сложна адекватно написать универсальный драйвер
-        ArrayList<Note> result = new ArrayList<>();
+    public ArrayList<Note> getAllDataNotes(){           //Потом получше изучу дженерики. Сейчас пока сложна адекватно написать универсальный драйвер
+        countPreferences = preferences.getInt("count_preferences",0);
+        ArrayList<Note> result = new ArrayList<Note>();
         for(int i = 0; i<countPreferences; i++)
         {
             result.add(new Note (
@@ -31,5 +32,14 @@ public class PreferencesDriver<T> {
         return result;
     }
 
+    public void newNote(String Title, String Description)
+    {
+        int id = countPreferences+1;
+        SharedPreferences.Editor edit = preferences.edit();
+        edit.putInt("count_preferences", countPreferences+1);
+        edit.putString("title_"+id,Title);
+        edit.putString("description_"+id,Description);
+        edit.commit();
+    }
 
 }

@@ -29,13 +29,13 @@ public class NoteAdapter extends ArrayAdapter{
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = activity.getLayoutInflater();
         View view = inflater.inflate(R.layout.note_template,null);
-        ((TextView)view.findViewById(R.id.title))
+        ((TextView)view.findViewById(R.id.title_template))
                 .setText(notes.get(position).getTitle());
-        ((TextView)view.findViewById(R.id.desctiption))
+        ((TextView)view.findViewById(R.id.description_template))
                 .setText(notes.get(position).getShortDescription());
 
         if(notes.get(position).isDone())
-            ((LinearLayout)view.findViewById(R.id.background))
+            ((LinearLayout)view.findViewById(R.id.background_template))
                     .setBackgroundColor(0xC4CAf50);
 
         return view;

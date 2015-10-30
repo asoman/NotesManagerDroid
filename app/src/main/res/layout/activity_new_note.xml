@@ -4,20 +4,34 @@
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.example.asoman97.notesmanager.NewNoteActivity"
     android:background="#abe7ff">
 
-    <ListView
+
+    <EditText
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="50dp"
+        android:hint="Заголовок"
+        android:layout_margin="5dp"
         android:layout_alignParentTop="true"
-        android:id="@+id/NotesList"
-        ></ListView>
+        android:id="@+id/title_create"
+        android:textColor="#ffff00"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/description_create"
+        android:layout_below="@+id/title_create"
+        android:layout_margin="5dp"
+        android:hint="Описание"/>
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:layout_alignParentBottom="true"
-        android:text="New Note"
         android:background="#75c1ff"
-        android:id="@+id/button"/>
+        android:text="Create"
+        android:id="@+id/button_create"
+        />
 </RelativeLayout>
